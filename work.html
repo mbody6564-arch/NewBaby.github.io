@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مبارك المولود الجديد | أدهم يوسف ياسر</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --primary: #1e3a8a;
+            --accent-gold: #d97706;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 580px;
+            background: var(--card-bg);
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+            position: relative;
+        }
+
+        .hero-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: #ffffff;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .badge-verse {
+            background: rgba(217, 119, 6, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #fcd34d;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .baby-fullname {
+            font-size: 32px;
+            font-weight: 900;
+            color: #60a5fa;
+            margin: 5px 0 10px 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* تنسيق الآية القرآنية الجديدة تحت الاسم */
+        .hero-header .sub-verse {
+            font-size: 14px;
+            color: #e2e8f0;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 14px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .content-body {
+            padding: 20px 30px 35px 30px;
+        }
+
+        .card-box {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 25px;
+        }
+
+        .box-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .input-group input, 
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: #ffffff;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus, 
+        .input-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.08);
+        }
+
+        .input-group textarea {
+            resize: none;
+            height: 85px;
+        }
+
+        .instapay-widget {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            border: 2px dashed #8b5cf6;
+            border-radius: 16px;
+            padding: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .instapay-widget h4 {
+            color: #6d28d9;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .instapay-widget p {
+            color: #7c3aed;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .instapay-btns {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .btn-ip-copy, .btn-ip-open {
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-ip-copy {
+            background: #ffffff;
+            color: #7c3aed;
+            border: 1.5px solid #7c3aed;
+        }
+
+        .btn-ip-copy:hover {
+            background: #f3e8ff;
+        }
+
+        .btn-ip-open {
+            background: #7c3aed;
+            color: white;
+            border: none;
+        }
+
+        .btn-ip-open:hover {
+            background: #6d28d9;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+        }
+
+        .btn-submit:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .messages-area {
+            margin-top: 25px;
+        }
+
+        .msg-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 14px 16px;
+            border-radius: 14px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .msg-author {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .msg-text {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.4;
+        }
+
+        .welcome-note-card {
+            background: linear-gradient(135deg, #eff6ff 100%, #dbeafe 0%);
+            border: 1px solid #bfdbfe;
+            padding: 15px 18px;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .welcome-note-card .note-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .welcome-note-card .note-desc {
+            font-size: 13px;
+            color: #1e40af;
+            line-height: 1.4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            color: #94a3b8;
+            border-top: 1px solid var(--border-color);
+            background: #f8fafc;
+        }
+
+        .toast-notify {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #059669;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 999;
+        }
+        .toast-notify.show {
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="hero-header">
+            <div class="badge-verse">
+                ﴿ رَبِّ هَبْ لِي مِن لَّدُنكَ ذُرِّيَّةً طَيِّبَةً ﴾
+            </div>
+            <h1>مبارك المولود الجديد</h1>
+            <div class="baby-fullname">أدهم يوسف ياسر</div>
+            <!-- الآية القرآنية بدلاً من الجملة العادية -->
+            <div class="sub-verse">
+                ﴿ الْمَالُ وَالْبَنُونَ زِينَةُ الْحَيَاةِ الدُّنْيَا ﴾
+            </div>
+        </div>
+
+        <div class="content-body">
+            <form id="wishForm">
+                <div class="card-box">
+                    <div class="box-title">
+                        <i class="fa-solid fa-pen-nib"></i> أترك تهنئة للمولود
+                    </div>
+
+                    <div class="input-group">
+                        <label>اسمك الكريم</label>
+                        <input type="text" id="userName" required placeholder="مثال:  أحمد...">
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 0;">
+                        <label>رسالة التهنئة</label>
+                        <textarea id="userMsg" required placeholder="اكتب مباركتك الجميلة هنا..."></textarea>
+                    </div>
+                </div>
+
+                <div class="instapay-widget">
+                    <h4>🎁 نقطة المولود (اختياري تماماً)</h4>
+                    <p>إذا أردت المشاركة ببركة مالية عبر Instapay:</p>
+                    <div class="instapay-btns">
+                        <button type="button" class="btn-ip-copy" onclick="copyInstapay()">
+                            <i class="fa-solid fa-copy"></i> نسخ العنوان
+                        </button>
+                        <a href="instapay://transfer" class="btn-ip-open">
+                            <i class="fa-solid fa-wallet"></i> فتح التطبيق
+                        </a>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">إرسال التهنئة الآن ✨</button>
+            </form>
+
+            <div class="messages-area">
+                <div class="box-title" style="margin-bottom: 12px;">
+                    <i class="fa-solid fa-comments"></i> دفتر التهاني المباركة
+                </div>
+                <div id="messagesContainer">
+                    <div class="welcome-note-card">
+                        <div class="note-title">من عائلة أدهم 👨‍👩‍👦</div>
+                        <div class="note-desc">أهلاً بكل الأحباء والأصدقاء.. شاركونا فرحتنا بقدوم غالينا، وتركوا لنا أطياف كلماتكم الطيبة هنا!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            جميع الحقوق محفوظة للاحتفال بأدهم يوسف ياسر &copy; 2026
+        </footer>
+    </div>
+
+    <div id="toast" class="toast-notify">تم نسخ عنوان إنستا باي بنجاح! 📋</div>
+
+    <script>
+        const instapayAccount = "adham.youssef@instapay"; // استبدل هذا بعنوان إنستا باي الخاص بك
+
+        function copyInstapay() {
+            navigator.clipboard.writeText(instapayAccount).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            });
+        }
+
+        const wishForm = document.getElementById('wishForm');
+        const messagesContainer = document.getElementById('messagesContainer');
+
+        wishForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('userName').value;
+            const msg = document.getElementById('userMsg').value;
+
+            if(name && msg) {
+                confetti({
+                    particleCount: 120,
+                    spread: 80,
+                    origin: { y: 0.6 }
+                });
+
+                const newCard = document.createElement('div');
+                newCard.className = 'msg-card';
+                newCard.innerHTML = `
+                    <div class="msg-author">${escapeHTML(name)}</div>
+                    <div class="msg-text">${escapeHTML(msg)}</div>
+                `;
+
+                messagesContainer.prepend(newCard);
+                wishForm.reset();
+            }
+        });
+
+        function escapeHTML(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+    </script>
+</body>
+</html>
